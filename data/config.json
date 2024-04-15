@@ -1,0 +1,12 @@
+{
+  "BOT_TOKEN": "6994184857:AAEBY6P-KLHX6h9KlsKAMoSDv--37FwjK1g",
+  "PROJECT_NAME": "Telegram_Bot_MasterClass",
+
+  "ADMINS": {
+
+  },
+
+  "WEBHOOK_HOST": "",
+  "WEBHOOK_PATH": "",
+  "WEBHOOK_URL": ""
+}
