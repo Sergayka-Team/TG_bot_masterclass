@@ -1,7 +1,8 @@
 {
-  "BOT_TOKEN": "6994184857:AAEBY6P-KLHX6h9KlsKAMoSDv--37FwjK1g",
+  "BOT_TOKEN": "6994184857:AAFu6vs7XCRGAuDh1rgTp71neBzZyq5bYUM",
   "PROJECT_NAME": "Telegram_Bot_MasterClass",
 
+  "PROXY": "http://proxy.server:3128",
   "ADMINS": {
 
   },
