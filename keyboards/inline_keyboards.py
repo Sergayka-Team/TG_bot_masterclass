@@ -1,4 +1,4 @@
-from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 
@@ -18,7 +18,8 @@ def get_start_config() -> InlineKeyboardMarkup:
 def get_webapp_config() -> InlineKeyboardMarkup:
     buttons = [
         [
-            InlineKeyboardButton(text="Тык", callback_data='get_webapp'),
+            InlineKeyboardButton(text="Тык", web_app=WebAppInfo(url=f'https://r0lton.github.io/TicTacToe/')),
+                                 # callback_data='get_webapp'),
             InlineKeyboardButton(text='Назад', callback_data='menu')
         ]
     ]

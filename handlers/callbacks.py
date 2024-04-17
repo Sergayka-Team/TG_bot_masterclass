@@ -1,5 +1,6 @@
 from aiogram import Router
 from aiogram.types import Message, CallbackQuery
+from aiogram.filters import Command
 
 from keyboards.reply_keyboard import get_main_menu
 
@@ -15,10 +16,11 @@ async def callback_get_start_yes(callback: CallbackQuery) -> None:
                                   show_alert=True)
 
 
+@router.message(Command('menu'))
 @router.callback_query(lambda callback: callback.data == 'menu')
 async def callback_menu(callback: CallbackQuery) -> None:
     await callback.answer(cache_time=3)
-    
+
     await callback.message.answer(text='Ты вернулся в главное меню!',
                                   reply_markup=get_main_menu())
 

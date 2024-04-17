@@ -14,11 +14,13 @@ router = Router()
 @router.message(Command("start"))
 async def handler_start_command(message: Message) -> None:
     name = config["PROJECT_NAME"]
-    await message.answer(f'Привет, {hbold(message.from_user.full_name)}!\n'
+    await message.answer(f'Привет, дорогой участник!\n'
                          f'Добро пожаловать на мастер-класс {hitalic(name)}!',
                          reply_markup=ReplyKeyboardRemove())
 
-    await asyncio.sleep(1)
+    await message.answer_sticker(r'CAACAgIAAxkBAAJRN2YgWjx5l-UInM-uzN3Tt62FvIi8AAI2FgACcmugS6XaTV2HP2QpNAQ')
+
+    await asyncio.sleep(2)
 
     await message.answer('Раз ты пришел сюда, то хочешь создать такого же бота как и я!\n'
                          'Тебе интересно как он сделан?', reply_markup=get_start_config())
@@ -26,11 +28,15 @@ async def handler_start_command(message: Message) -> None:
 
 @router.message(Command("help"))
 async def handler_help_command(message: Message) -> None:
-    await message.answer(f'Хуй я тебе а не помогу')
+    await message.answer(f'В этом разделе я тебе помогу создать твоего собственного бота!🤓\n'
+                         f'Давай с тобой перейдем к @BotFather')
 
 
 @router.message(Command("test"))
 async def handler_test_command(message: Message) -> None:
-    await message.answer('Тест пройден')
+    await message.answer('Тут мы будем с тобой проверять различные типы данных, которые есть в телеграме!'
+                         '(а их оооочень много!)')
+
+    await message.answer('Попробуй отправить какой-то ')
 
 

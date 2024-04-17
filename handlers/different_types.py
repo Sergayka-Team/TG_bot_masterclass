@@ -29,7 +29,11 @@ async def handler_text_BMST(message: Message) -> None:
 
 @router.message(F.text == "Я закончил!")
 async def handler_text_end(message: Message) -> None:
-    await message.answer(f'Отлично! Ты посмотрел как этот бот выглядит снаружи, '
+    await message.answer(f'Круто!')
+
+    await message.answer_sticker(r'CAACAgIAAxkBAAJRPWYgXHGrRK0scClk16r6DniETdxBAAIdGgACIucJSAe9y5A0RJZyNAQ')
+
+    await message.answer(f'Ты посмотрел как этот бот выглядит снаружи, '
                          f'теперь давай окунемся в его код!',
                          reply_markup=ReplyKeyboardRemove())
 
@@ -46,12 +50,16 @@ async def handler_message_text(message: Message) -> None:
 
 @router.message(F.sticker)
 async def handler_message_sticker(message: Message) -> None:
-    await message.answer(f'{message.from_user.full_name}, ты отправил стикер')
+    await message.answer_sticker(r'CAACAgIAAxkBAAJRQGYgXczMch_6B7ea1Dxfrwr4V53pAAJ8NAACKZR5SKsBZBwDjNndNAQ')
+
+    await message.answer(f'Круто! Теперь попробуй отправить любой файл (doc, pdf)')
+    # await message.answer(f'{message.from_user.full_name}, ты отправил стикер')
 
 
 @router.message(F.animation)
 async def handler_message_gif(message: Message) -> None:
-    await message.answer(f'{message.from_user.full_name}, ты мне нахуя-то отправил гифку')
+    await message.answer(f'Ты просто машина! Давай вернемся в главное меню /menu')
+    # await message.answer(f'{message.from_user.full_name}, ты мне нахуя-то отправил гифку')
 
 
 @router.message(F.photo)
@@ -61,7 +69,9 @@ async def handler_message_photo(message: Message) -> None:
 
 @router.message(F.document)
 async def handler_message_doc(message: Message) -> None:
-    await message.answer('doc')
+    await message.answer('Документ получен!😎\n'
+                         'Теперь отправь мне гифку!')
+    # await message.answer('doc')
 
 
 @router.message(F.location)

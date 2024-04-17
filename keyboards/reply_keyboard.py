@@ -5,7 +5,7 @@ from aiogram.utils.keyboard import ReplyKeyboardBuilder
 def get_main_menu() -> ReplyKeyboardMarkup:
     keyboard = ReplyKeyboardBuilder()
     # buttons = ["PyGame", "WepApp", "КФ МГТУ", "Я закончил!"]
-    buttons = ["WebApp", "КФ МГТУ", "Я закончил!"]
+    buttons = ["Игра", "WebApp", "Информация", "Я закончил!"]
 
     for button_text in buttons:
         keyboard.button(text=button_text)
