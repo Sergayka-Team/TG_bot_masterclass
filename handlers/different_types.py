@@ -1,65 +1,91 @@
+import asyncio
+
 from aiogram import Router, F
 from aiogram.types import Message, ReplyKeyboardRemove
-from aiogram.utils.markdown import hbold
+from aiogram.utils.markdown import hbold, hitalic
 
-from keyboards.inline_keyboards import get_webapp_config, get_BMSTU_config
+from keyboards.inline_keyboards import get_webapp_config, get_BMSTU_config, get_finish_config
 
 router = Router()
 
 
+@router.message(F.text == "Игра")
+async def handler_text_game(message: Message) -> None:
+    await message.answer(text="Режим игры еще находится в разработке🤡",
+                         show_alert=True)
+
+
 @router.message(F.text == "WebApp")
 async def handler_text_WebApp(message: Message) -> None:
-    await message.answer(f'Отлично, что ты хочешь узнать про технологию WebApp',
+    await message.answer(f'Отлично, что ты хочешь узнать про технологию WebApp🤪',
                          reply_markup=ReplyKeyboardRemove())
-    # f'Тогда давай без лишних слов, просто {hbold("тыкни")}',
-    # reply_markup=get_webapp_config())
+
+    await asyncio.sleep(1)
+
+    await message.answer_sticker(r'CAACAgIAAxkBAAJRQ2YgbJOYXY_NZbdDGsmRxeO8cQc3AAIvRQACWh1BSGD3_PgXloUdNAQ')
+
+    await asyncio.sleep(2)
 
     await message.answer(f'Тогда давай без лишних слов, просто {hbold("тыкни")}',
                          reply_markup=get_webapp_config())
 
 
-@router.message(F.text == "КФ МГТУ")
+@router.message(F.text == "Информация")
 async def handler_text_BMST(message: Message) -> None:
-    await message.answer(f'Тут ты сможешь узнать актуальную информацию про наш филиал',
-                         reply_markup=ReplyKeyboardRemove())
+    await message.answer(
+        f"{hbold('Тут ты сможешь узнать актуальную информацию про Калужский Филиал МГТУ им. Н.Э.Баумана🙈')}",
+        reply_markup=ReplyKeyboardRemove())
 
-    await message.answer(f'Какой-то текст / дискриптион',
+    await asyncio.sleep(2)
+
+    await message.answer(f"Сейчас Вы находитесь на территории кафедры ИУК2 \"Информационные системы и сети\"\n"
+                         f"Наш заведующий кафедры - Чухраев Игорь Владимирович\n\n"
+                         f"{hbold('Выпускники кафедры ИУК2 «Информационные системы и сети»:')}\n"
+                         f"{hitalic('-Приобретают навыки и опыт программирования разнообразных задач, осваивают несколько языков и сред программирования (С, C++, С#, Java, PHP, Python, VHDL, Go, UML, Assemblerи др.)')}\n"
+                         f"{hitalic('-Свободно работают практически во всех современных операционных системах;')}\n"
+                         f"{hitalic('-Программируют микропроцессорные системы, микроконтроллеры и ПЛИС;')}\n"
+                         f"{hitalic('-Разрабатывают различные информационно-вычислительные системы, причем не только электронные схемы на современной элементной базе, но и схемы сопряжения с другими комплексами включая программное обеспечение для установки, настройки и эффективного функционирования всей системы в целом;')}\n"
+                         f"{hitalic('-Получают навыки проектирования, прокладки, настройки и эксплуатации компьютерных сетей различной сложности и конфигурации.')}",
                          reply_markup=get_BMSTU_config())
 
 
 @router.message(F.text == "Я закончил!")
 async def handler_text_end(message: Message) -> None:
-    await message.answer(f'Круто!')
+    await message.answer(f'А ты точно закончил? Еще есть команда /test',
+                         reply_markup=get_finish_config())
+    # await message.answer(f'Круто!')
 
-    await message.answer_sticker(r'CAACAgIAAxkBAAJRPWYgXHGrRK0scClk16r6DniETdxBAAIdGgACIucJSAe9y5A0RJZyNAQ')
+    # await asyncio.sleep(1)
 
-    await message.answer(f'Ты посмотрел как этот бот выглядит снаружи, '
-                         f'теперь давай окунемся в его код!',
-                         reply_markup=ReplyKeyboardRemove())
+    # await message.answer_sticker(r'CAACAgIAAxkBAAJRPWYgXHGrRK0scClk16r6DniETdxBAAIdGgACIucJSAe9y5A0RJZyNAQ')
+
+    # await message.answer(f'Ты посмотрел как этот бот выглядит снаружи, '
+    #                      f'теперь давай окунемся в его код!',
+    #                      reply_markup=ReplyKeyboardRemove())
 
 
 @router.message(F.undefined)
 async def handler_debug(message: Message) -> None:
-    await message.answer('xz')
+    await message.answer('undefined type')
 
 
 @router.message(F.text)
 async def handler_message_text(message: Message) -> None:
-    await message.answer(f'{message.from_user.full_name}, ты отправил текст')
+    await message.answer(f'Хммм... {message.text}🤔... глубокая мысль...')
 
 
 @router.message(F.sticker)
 async def handler_message_sticker(message: Message) -> None:
     await message.answer_sticker(r'CAACAgIAAxkBAAJRQGYgXczMch_6B7ea1Dxfrwr4V53pAAJ8NAACKZR5SKsBZBwDjNndNAQ')
 
+    await asyncio.sleep(2)
+
     await message.answer(f'Круто! Теперь попробуй отправить любой файл (doc, pdf)')
-    # await message.answer(f'{message.from_user.full_name}, ты отправил стикер')
 
 
 @router.message(F.animation)
 async def handler_message_gif(message: Message) -> None:
     await message.answer(f'Ты просто машина! Давай вернемся в главное меню /menu')
-    # await message.answer(f'{message.from_user.full_name}, ты мне нахуя-то отправил гифку')
 
 
 @router.message(F.photo)
@@ -71,7 +97,6 @@ async def handler_message_photo(message: Message) -> None:
 async def handler_message_doc(message: Message) -> None:
     await message.answer('Документ получен!😎\n'
                          'Теперь отправь мне гифку!')
-    # await message.answer('doc')
 
 
 @router.message(F.location)

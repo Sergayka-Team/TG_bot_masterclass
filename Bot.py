@@ -22,8 +22,8 @@ async def main() -> None:
 
     dp = Dispatcher()
     dp.include_routers(commands.router,
-                       different_types.router,
-                       callbacks.router)
+                       callbacks.router,
+                       different_types.router)
 
     await dp.start_polling(bot)
 

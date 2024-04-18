@@ -7,6 +7,7 @@ from aiogram.utils.markdown import hbold, hitalic
 
 from Bot import config
 from keyboards.inline_keyboards import get_start_config
+from keyboards.reply_keyboard import get_main_menu
 
 router = Router()
 
@@ -34,9 +35,14 @@ async def handler_help_command(message: Message) -> None:
 
 @router.message(Command("test"))
 async def handler_test_command(message: Message) -> None:
-    await message.answer('Тут мы будем с тобой проверять различные типы данных, которые есть в телеграме!'
-                         '(а их оооочень много!)')
+    await message.answer('Тут мы будем с тобой проверять различные типы данных, '
+                         'которые есть в телеграмме!\n'
+                         '...а их ооооочень много!..')
 
-    await message.answer('Попробуй отправить какой-то ')
+    await message.answer('Попробуй отправить какой-то стикер')
 
 
+@router.message(Command("menu"))
+async def handler_menu_command(message: Message) -> None:
+    await message.answer(text='Ты вернулся в главное меню!',
+                         reply_markup=get_main_menu())

@@ -1,6 +1,7 @@
+import asyncio
+
 from aiogram import Router
-from aiogram.types import Message, CallbackQuery
-from aiogram.filters import Command
+from aiogram.types import Message, CallbackQuery, ReplyKeyboardRemove
 
 from keyboards.reply_keyboard import get_main_menu
 
@@ -16,7 +17,6 @@ async def callback_get_start_yes(callback: CallbackQuery) -> None:
                                   show_alert=True)
 
 
-@router.message(Command('menu'))
 @router.callback_query(lambda callback: callback.data == 'menu')
 async def callback_menu(callback: CallbackQuery) -> None:
     await callback.answer(cache_time=3)
@@ -30,6 +30,30 @@ async def callback_webapp(callback: CallbackQuery) -> None:
     # Можно сделать крестики - нолики на Flask и подключить его через WepApp
     await callback.answer(
         text="Бот в режиме обслуживания :(\nПожалуйста, подождите",
+        show_alert=True
+    )
+
+
+@router.callback_query(lambda callback: callback.data == "next")
+async def callback_next(callback: CallbackQuery) -> None:
+    await callback.message.answer(
+        text='Круто!',
+        reply_markup=ReplyKeyboardRemove()
+    )
+
+    await asyncio.sleep(1)
+
+    await callback.message.answer_sticker(r'CAACAgIAAxkBAAJRPWYgXHGrRK0scClk16r6DniETdxBAAIdGgACIucJSAe9y5A0RJZyNAQ')
+
+    await callback.message.answer(f'Ты посмотрел как этот бот выглядит снаружи, '
+                                  f'теперь давай окунемся в его код!',
+                                  reply_markup=ReplyKeyboardRemove())
+
+
+@router.callback_query(lambda callback: callback.data == "test")
+async def callback_test(callback: CallbackQuery) -> None:
+    await callback.answer(
+        text="Напиши команду /test",
         show_alert=True
     )
 

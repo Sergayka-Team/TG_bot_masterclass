@@ -18,8 +18,7 @@ def get_start_config() -> InlineKeyboardMarkup:
 def get_webapp_config() -> InlineKeyboardMarkup:
     buttons = [
         [
-            InlineKeyboardButton(text="Тык", web_app=WebAppInfo(url=f'https://r0lton.github.io/TicTacToe/')),
-                                 # callback_data='get_webapp'),
+            InlineKeyboardButton(text="Тык", web_app=WebAppInfo(url=f'https://tic-tac-toe-sandy.vercel.app/')),
             InlineKeyboardButton(text='Назад', callback_data='menu')
         ]
     ]
@@ -32,12 +31,12 @@ def get_webapp_config() -> InlineKeyboardMarkup:
 def get_BMSTU_config() -> InlineKeyboardMarkup:
     buttons = [
         [
-            InlineKeyboardButton(text='Ссылка1', url='https://www.google.ru/?hl=ru'),
-            InlineKeyboardButton(text='Ссылка2', url='https://www.google.ru/?hl=ru')
+            InlineKeyboardButton(text='Наша кафедра', url='https://kf.bmstu.ru/edu/kf/iuk/iuk2'),
+            InlineKeyboardButton(text='Для абитуриентов', url='https://kf.bmstu.ru/priemnaya-komissiya')
         ],
         [
-            InlineKeyboardButton(text='Ссылка3', url='https://www.google.ru/?hl=ru'),
-            InlineKeyboardButton(text='Ссылка4', url='https://www.google.ru/?hl=ru')
+            InlineKeyboardButton(text='Наш TG', url='t.me/bmstu_kaluga'),
+            InlineKeyboardButton(text='Наш ВК', url='https://vk.com/bmstu_kaluga')
         ],
         [
             InlineKeyboardButton(text='Назад', callback_data='menu')
@@ -48,3 +47,15 @@ def get_BMSTU_config() -> InlineKeyboardMarkup:
 
     return keyboard
 
+
+def get_finish_config() -> InlineKeyboardMarkup:
+    buttons = [
+        [
+            InlineKeyboardButton(text='Уже ознакомился!', callback_data="next"),
+            InlineKeyboardButton(text="Сейчас попробую!", callback_data="test")
+        ]
+    ]
+
+    keyboard = InlineKeyboardMarkup(inline_keyboard=buttons)
+
+    return keyboard

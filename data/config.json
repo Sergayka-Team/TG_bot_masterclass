@@ -3,6 +3,7 @@
   "PROJECT_NAME": "Telegram_Bot_MasterClass",
 
   "PROXY": "http://proxy.server:3128",
+  "WEB_APP": "https://r0lton.github.io/TicTacToe/",
   "ADMINS": {
 
   },
