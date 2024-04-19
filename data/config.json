@@ -1,9 +1,9 @@
 {
-  "BOT_TOKEN": "6994184857:AAFu6vs7XCRGAuDh1rgTp71neBzZyq5bYUM",
+  "BOT_TOKEN": "",
   "PROJECT_NAME": "Telegram_Bot_MasterClass",
 
-  "PROXY": "http://proxy.server:3128",
-  "WEB_APP": "https://r0lton.github.io/TicTacToe/",
+  "PROXY": "",
+  "WEB_APP": "",
   "ADMINS": {
 
   },
