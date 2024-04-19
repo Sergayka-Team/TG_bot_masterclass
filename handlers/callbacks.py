@@ -46,7 +46,7 @@ async def callback_next(callback: CallbackQuery) -> None:
     await callback.message.answer_sticker(r'CAACAgIAAxkBAAJRPWYgXHGrRK0scClk16r6DniETdxBAAIdGgACIucJSAe9y5A0RJZyNAQ')
 
     await callback.message.answer(f'Ты посмотрел как этот бот выглядит снаружи, '
-                                  f'теперь давай окунемся в его код!',
+                                  f'теперь давай окунемся в его код! /help',
                                   reply_markup=ReplyKeyboardRemove())
 
 
