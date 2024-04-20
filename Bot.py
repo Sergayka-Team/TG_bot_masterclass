@@ -17,8 +17,8 @@ async def main() -> None:
     token = config['BOT_TOKEN']
     session = AiohttpSession(proxy=config["PROXY"])
 
-    # bot = Bot(token=token, session=session, parse_mode=ParseMode.HTML)
-    bot = Bot(token=token, parse_mode=ParseMode.HTML)
+    bot = Bot(token=token, session=session, parse_mode=ParseMode.HTML)
+    # bot = Bot(token=token, parse_mode=ParseMode.HTML)
 
     dp = Dispatcher()
     dp.include_routers(commands.router,

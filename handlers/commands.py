@@ -2,7 +2,7 @@ import asyncio
 
 from aiogram.filters import Command
 from aiogram import Router
-from aiogram.types import Message, ReplyKeyboardMarkup, InlineKeyboardMarkup, ReplyKeyboardRemove
+from aiogram.types import Message, ReplyKeyboardRemove
 from aiogram.utils.markdown import hbold, hitalic
 
 from Bot import config
