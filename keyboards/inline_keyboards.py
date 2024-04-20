@@ -18,7 +18,7 @@ def get_start_config() -> InlineKeyboardMarkup:
 def get_webapp_config() -> InlineKeyboardMarkup:
     buttons = [
         [
-            InlineKeyboardButton(text="Тык", web_app=WebAppInfo(url=f'https://tic-tac-toe-sandy.vercel.app/')),
+            InlineKeyboardButton(text="Тык", web_app=WebAppInfo(url=f'https://sergayka.github.io/')),
             InlineKeyboardButton(text='Назад', callback_data='menu')
         ]
     ]

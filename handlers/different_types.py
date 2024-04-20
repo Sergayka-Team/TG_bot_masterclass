@@ -53,20 +53,6 @@ async def handler_text_BMST(message: Message) -> None:
 async def handler_text_end(message: Message) -> None:
     await message.answer(f'А ты точно закончил? Еще есть команда /test',
                          reply_markup=get_finish_config())
-    # await message.answer(f'Круто!')
-
-    # await asyncio.sleep(1)
-
-    # await message.answer_sticker(r'CAACAgIAAxkBAAJRPWYgXHGrRK0scClk16r6DniETdxBAAIdGgACIucJSAe9y5A0RJZyNAQ')
-
-    # await message.answer(f'Ты посмотрел как этот бот выглядит снаружи, '
-    #                      f'теперь давай окунемся в его код!',
-    #                      reply_markup=ReplyKeyboardRemove())
-
-
-@router.message(F.undefined)
-async def handler_debug(message: Message) -> None:
-    await message.answer('undefined type')
 
 
 @router.message(F.text)
@@ -85,7 +71,7 @@ async def handler_message_sticker(message: Message) -> None:
 
 @router.message(F.animation)
 async def handler_message_gif(message: Message) -> None:
-    await message.answer(f'Ты просто машина! Давай вернемся в главное меню /menu')
+    await message.answer(f'Ты просто машина! Давай теперь напишем команду /help')
 
 
 @router.message(F.photo)
