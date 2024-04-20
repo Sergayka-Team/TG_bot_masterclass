@@ -2,7 +2,7 @@
   "BOT_TOKEN": "",
   "PROJECT_NAME": "Telegram_Bot_MasterClass",
 
-  "PROXY": "",
+  "PROXY": "http://proxy.server:0000",
   "WEB_APP": "",
   "ADMINS": {
 
